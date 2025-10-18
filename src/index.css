@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cambodia Tours Brand Colors - Inspired by the logo */
+    --cambodia-orange: 22 76% 39%;
+    --cambodia-terracotta: 22 70% 35%;
+    --cambodia-teal: 180 100% 25%;
+    --cambodia-teal-light: 180 100% 35%;
+    --sunset-orange: 22 85% 50%;
+    --pure-white: 0 0% 100%;
+    --warm-cream: 28 50% 97%;
+    --soft-beige: 28 25% 95%;
+    --deep-teal: 180 100% 15%;
+    
+    /* Gradient System - Cambodia Tours Theme */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--cambodia-orange)), hsl(var(--sunset-orange)));
+    --gradient-sunset: linear-gradient(45deg, hsl(var(--cambodia-terracotta)), hsl(var(--sunset-orange)));
+    --gradient-teal: linear-gradient(135deg, hsl(var(--cambodia-teal)), hsl(var(--cambodia-teal-light)));
+    --gradient-temple: linear-gradient(180deg, hsl(var(--deep-teal)), hsl(var(--cambodia-teal)));
+    
+    /* Shadow System - Cambodia Theme */
+    --shadow-orange: 0 10px 40px -10px hsl(var(--cambodia-orange) / 0.3);
+    --shadow-teal: 0 8px 30px -8px hsl(var(--cambodia-teal) / 0.25);
+    --shadow-elegant: 0 20px 60px -15px hsl(14 50% 30% / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--sunset-orange) / 0.4);
+    
+    /* Animation Timing */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Base Design System */
+    --background: var(--warm-cream);
+    --foreground: var(--deep-teal);
+    --card: var(--pure-white);
+    --card-foreground: var(--deep-teal);
+    --popover: var(--pure-white);
+    --popover-foreground: var(--deep-teal);
+    --primary: var(--cambodia-orange);
+    --primary-foreground: var(--pure-white);
+    --secondary: var(--cambodia-teal);
+    --secondary-foreground: var(--pure-white);
+    --muted: var(--soft-beige);
+    --muted-foreground: 180 25% 45%;
+    --accent: var(--sunset-orange);
+    --accent-foreground: var(--deep-teal);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--pure-white);
+    --border: 28 20% 88%;
+    --input: 28 20% 88%;
+    --ring: var(--cambodia-orange);
+    --radius: 0.75rem;
+    --sidebar-background: var(--pure-white);
+    --sidebar-foreground: var(--deep-teal);
+    --sidebar-primary: var(--cambodia-orange);
+    --sidebar-primary-foreground: var(--pure-white);
+    --sidebar-accent: var(--soft-beige);
+    --sidebar-accent-foreground: var(--deep-teal);
+    --sidebar-border: 28 20% 88%;
+    --sidebar-ring: var(--cambodia-orange);
+  }
+
+  .dark {
+    --background: var(--deep-teal);
+    --foreground: var(--pure-white);
+    --card: var(--cambodia-teal);
+    --card-foreground: var(--pure-white);
+    --popover: var(--deep-teal);
+    --popover-foreground: var(--pure-white);
+    --primary: var(--cambodia-orange);
+    --primary-foreground: var(--pure-white);
+    --secondary: hsl(180 100% 20%);
+    --secondary-foreground: var(--pure-white);
+    --muted: hsl(180 100% 20%);
+    --muted-foreground: 180 25% 75%;
+    --accent: var(--sunset-orange);
+    --accent-foreground: var(--deep-teal);
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: var(--pure-white);
+    --border: hsl(180 100% 20%);
+    --input: hsl(180 100% 20%);
+    --ring: var(--cambodia-orange);
+    --sidebar-background: var(--deep-teal);
+    --sidebar-foreground: var(--pure-white);
+    --sidebar-primary: var(--cambodia-orange);
+    --sidebar-primary-foreground: var(--pure-white);
+    --sidebar-accent: hsl(180 100% 20%);
+    --sidebar-accent-foreground: var(--pure-white);
+    --sidebar-border: hsl(180 100% 20%);
+    --sidebar-ring: var(--cambodia-orange);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  .cambodia-hero {
+    background: var(--gradient-hero);
+    box-shadow: var(--shadow-orange);
+    transition: var(--transition-smooth);
+  }
+  
+  .cambodia-accent {
+    background: var(--gradient-hero);
+    color: hsl(var(--pure-white));
+    box-shadow: var(--shadow-orange);
+    transition: var(--transition-smooth);
+  }
+  
+  .cambodia-accent:hover {
+    background: var(--gradient-sunset);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .cambodia-teal {
+    background: var(--gradient-teal);
+    color: hsl(var(--pure-white));
+    box-shadow: var(--shadow-teal);
+    transition: var(--transition-smooth);
+  }
+
+  .cambodia-teal:hover {
+    background: var(--gradient-temple);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .whatsapp-button {
+    background: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 25%));
+    color: white;
+    box-shadow: 0 8px 25px -8px hsl(0 0% 20%);
+    transition: var(--transition-bounce);
+  }
+  
+  .whatsapp-button:hover {
+    background: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 20%));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px -10px hsl(0 0% 15%);
+  }
+  
+  .temple-glow {
+    background: var(--gradient-temple);
+    color: hsl(var(--pure-white));
+    box-shadow: var(--shadow-teal);
+  }
+
+  .logo-filter {
+    filter: drop-shadow(0 4px 12px hsl(var(--cambodia-orange) / 0.3));
+  }
+}
