@@ -672,61 +672,113 @@ Fin de nos services.`,
     ]
   },
   {
-    id: "option-p-splendeurs-cambodge-9-jours",
-    title: "Option P : Splendeurs du Cambodge – 9 jours",
+    id: "option-p-circuit-familial-16-jours",
+    title: "Option P : Circuit familial 16 jours au Cambodge",
     image: "/lovable-uploads/countryside-cattle.jpg",
-    duration: "9 jours",
-    price: "Tarif sur demande",
+    duration: "16 jours",
+    price: "2 050€ par personne",
     participants: "Groupe privé",
-    description: `Option P : Splendeurs du Cambodge – 9 jours
+    description: `Option P : Circuit familial 16 jours au Cambodge
 
-Jour 1 – Départ international
-Vol en direction du Cambodge.
+Jour 1 – Arrivée à Siem Reap
+Accueil à l'aéroport à 9h00 et transfert à votre hébergement. Tour de ville en tuk-tuk et temps libre pour la détente.
+Repas libres.
 
-Jour 2 – Arrivée à Phnom Penh
-Accueil à l'aéroport et transfert vers votre hébergement. Promenade libre le long du quai Sisowath.
+Jour 2 – Découverte d'Angkor en tuk-tuk (50 km)
+Départ à 8h pour la visite du site d'Angkor : Angkor Wat, Ta Prohm, Angkor Thom (Bayon, Baphuon, Phimeanakas, Terrasse des Éléphants et du Roi Lépreux).
+Déjeuner inclus, dîner libre.
 
-Jour 3 – Trésors de Phnom Penh
-Visite du Palais Royal, de la Pagode d'Argent et du Musée National. Après-midi dédiée à la découverte du marché central et des ruelles animées de la capitale.
+Jour 3 – Temples et villages d'Angkor (80 km)
+Visite du temple Preah Khan, de Neak Poan, Mébon Oriental et du village de Preah Dak.
+L'après-midi, découverte du temple en grès rose de Banteay Srei.
+Déjeuner inclus, dîner libre.
 
-Jour 4 – Route vers Battambang
-Départ pour Battambang, une des plus charmantes villes du pays. En chemin, visite d'une pagode et de villages traditionnels. Balade libre en soirée.
+Jour 4 – Campagne et lac Tonlé Sap (40 km)
+Excursion à vélo à travers la campagne cambodgienne : paysages verdoyants, maisons traditionnelles et rencontres avec les habitants. Participation à la préparation d'un repas local et déjeuner convivial chez l'habitant.
+L'après-midi, visite du village des pêcheurs sur pilotis au bord du lac Tonlé Sap.
+Déjeuner inclus, dîner libre.
 
-Jour 5 – Battambang authentique
-Exploration des campagnes environnantes en tuk-tuk : rizières, pagodes et artisans locaux. Expérience du train de bambou typique de la région.
+Jour 5 – Siem Reap → Battambang (170 km, 3h)
+Route vers Battambang, surnommée le grenier à riz du pays. En chemin, visite d'une ferme de soie et d'un ancien temple angkorien.
+À l'arrivée, balade dans la ville coloniale.
+Déjeuner inclus, dîner libre.
 
-Jour 6 – En route vers Siem Reap
-Transfert vers Siem Reap avec arrêts dans des villages et à la pagode d'Ek Phnom. Installation à votre arrivée.
+Jour 6 – Vie locale à Battambang
+Découverte des ateliers artisanaux (galettes de riz, chips de banane, etc.) et visite d'une pagode.
+Excursion sur le train en bambou et observation du vol des chauves-souris à la grotte de Phnom Sampov au coucher du soleil.
+Déjeuner inclus, dîner libre.
 
-Jour 7 – Les merveilles d'Angkor Thom
-Visite du Bayon, de la Terrasse des Éléphants et du Palais Royal. Coucher de soleil sur Angkor.
+Jour 7 – Battambang → Phat Sanday (200 km, 4h)
+Route vers la province de Kampong Chhnang. Visite d'un atelier de sculpture sur pierre.
+Navigation en bateau jusqu'à Phat Sanday, installation chez l'habitant et excursion sur le lac Tonlé Sap et la forêt inondée.
+Déjeuner inclus. Dîner et nuit chez l'habitant.
 
-Jour 8 – Angkor Wat et Ta Prohm
-Exploration du temple emblématique d'Angkor Wat et du mystérieux Ta Prohm. Balade au village de Preah Dak pour rencontrer les habitants.
+Jour 8 – Phat Sanday → Oudong → Kratie (270 km)
+Après le petit déjeuner, route vers Oudong et visite d'une belle pagode au pied de la colline.
+Poursuite du voyage vers Kratie, avec arrêts au marché des insectes et à Kampong Cham.
+Observation des dauphins d'eau douce du Mékong à Kampi, puis traversée en bac vers l'île de Koh Trong.
+Déjeuner inclus. Dîner et nuit chez l'habitant.
 
-Jour 9 – Lac Tonlé Sap et départ
-Balade en bateau sur le lac Tonlé Sap avant transfert à l'aéroport.
+Jour 9 – Kratie → Mondulkiri (215 km, 3h30)
+Balade à vélo sur l'île de Koh Trong, puis route vers la région montagneuse de Mondulkiri.
+Découverte des paysages de la montagne Dos Kramom et de la forêt.
+Déjeuner inclus, dîner libre.
+
+Jour 10 – Mondulkiri et les éléphants
+Petite randonnée dans les montagnes, rencontre avec les éléphants et moment privilégié pour les nourrir.
+Pique-nique au bord de la rivière et baignade possible.
+Retour au village pour échanger avec les habitants Bunongs.
+Déjeuner pique-nique, dîner libre.
+
+Jour 11 – Mondulkiri → Phnom Penh (370 km, 6h)
+Route vers la capitale du Cambodge.
+Arrivée en fin d'après-midi et balade pédestre le long du Palais Royal.
+Déjeuner inclus, dîner libre.
+
+Jour 12 – Découverte de Phnom Penh
+Visite du Palais Royal, de la Pagode d'Argent et du Musée National.
+L'après-midi, visite du musée S21 retraçant l'histoire du génocide (1975–1979).
+Balade en bateau sur le Mékong au coucher du soleil.
+Déjeuner inclus, dîner libre.
+
+Jour 13 – Phnom Penh → Kep / Kampot (152 km, 2h30)
+Route vers le sud du pays jusqu'à Kep.
+Visite d'une plantation de poivre et cours de cuisine locale.
+L'après-midi, découverte du marché aux crabes et des salines traditionnelles.
+Déjeuner inclus, dîner libre.
+
+Jour 14 – Kep → Koh Rong Sanloem (130 km, 3h)
+Route vers Sihanoukville puis bateau rapide jusqu'à l'île paradisiaque de Koh Rong Sanloem.
+Repas libres.
+
+Jour 15 – Journée libre à Koh Rong Sanloem
+Détente sur la plage ou activités au choix.
+Repas libres.
+
+Jour 16 – Retour à Phnom Penh et départ
+Transfert retour vers la capitale pour le vol de nuit.
+Repas libres.
 Fin de nos services.`,
     highlights: [
-      "Vol international vers le Cambodge",
+      "Circuit familial complet de 16 jours",
+      "Temples d'Angkor : Angkor Wat, Ta Prohm, Angkor Thom",
+      "Excursion à vélo dans la campagne cambodgienne",
+      "Train en bambou à Battambang",
+      "Nuits chez l'habitant à Phat Sanday et Koh Trong",
+      "Observation des dauphins du Mékong",
+      "Rencontre avec les éléphants à Mondulkiri",
+      "Découverte de la région montagneuse",
       "Palais Royal et Pagode d'Argent",
-      "Musée National et marché central",
-      "Route vers Battambang",
-      "Villages traditionnels et pagodes",
-      "Train de bambou typique",
-      "Rizières et artisans locaux",
-      "Pagode d'Ek Phnom",
-      "Angkor Thom et le Bayon",
-      "Temple d'Angkor Wat",
-      "Temple Ta Prohm",
-      "Village de Preah Dak",
-      "Lac Tonlé Sap"
+      "Plantation de poivre à Kampot",
+      "Détente sur l'île de Koh Rong Sanloem"
     ],
     includes: [
-      "Hébergements avec petit-déjeuner",
-      "Guide francophone privé",
-      "Transports et entrées aux sites",
-      "Non inclus : Assurances, pourboires et dépenses personnelles"
+      "Hébergements avec petits-déjeuners",
+      "Transferts et transports mentionnés",
+      "Droits d'entrée sur les sites",
+      "Déjeuners et dîners mentionnés",
+      "Activités locales et rencontres avec les habitants",
+      "Exclus : Guide accompagnateur, repas libres, assurances, pourboires"
     ]
   },
 ];
