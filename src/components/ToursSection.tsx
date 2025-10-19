@@ -589,48 +589,85 @@ Fin de nos services.`,
     ]
   },
   {
-    id: "option-o-essentiel-cambodge-6-jours",
-    title: "Option O : L'Essentiel du Cambodge – 6 jours",
+    id: "option-o-itineraire-13-jours",
+    title: "Option O : Itinéraire 13 jours / 12 nuits au Cambodge",
     image: "/lovable-uploads/angkor-wat-approach.jpg",
-    duration: "6 jours",
+    duration: "13 jours / 12 nuits",
     price: "Tarif sur demande",
     participants: "Groupe privé",
-    description: `Option O : L'Essentiel du Cambodge – 6 jours
+    description: `Option O : Itinéraire 13 jours / 12 nuits au Cambodge
 
 Jour 1 – Arrivée à Siem Reap
-Accueil à l'aéroport et transfert vers votre hébergement. Balade libre pour une première immersion dans la ville.
+Accueil à l'aéroport à 9h40 et transfert vers votre hébergement. Tour de ville en tuk-tuk et visite du musée Team House. Soirée d'accueil avec dîner-spectacle.
 
-Jour 2 – Angkor Thom et Ta Prohm
-Exploration d'Angkor Thom, du Bayon et de la Terrasse des Éléphants. Continuation vers le temple mystique de Ta Prohm, où la nature reprend ses droits.
+Jour 2 – Lever du soleil sur Angkor
+Découverte du lever du soleil sur le parc d'Angkor : Angkor Wat, Angkor Thom, Preah Khan et Banteay Srei.
+Visite des ateliers d'artisanat local.
+Déjeuner inclus, soirée libre.
 
-Jour 3 – Angkor Wat et Banteay Srei
-Visite du majestueux Angkor Wat puis départ vers la citadelle des femmes, Banteay Srei, célèbre pour la finesse de ses sculptures.
+Jour 3 – Excursion à Preah Vihear (230 km)
+Route vers le nord pour visiter le temple hindouiste de Preah Vihear (IXe–XIIe siècle). Ascension en 4x4 jusqu'au sommet de la montagne Dangrèk (500 m d'altitude). Exploration des sanctuaires reliés par chaussées et escaliers. Retour à Siem Reap en fin d'après-midi.
+Déjeuner pique-nique, dîner libre.
 
-Jour 4 – Villages flottants du Tonlé Sap
-Balade en bateau sur le lac Tonlé Sap à la rencontre des habitants des villages flottants. Retour à Siem Reap et temps libre pour vos dernières découvertes.
+Jour 4 – Réserve ornithologique de Prek Toal
+Excursion en bateau vers le village des pêcheurs de Prek Toal, l'une des plus grandes réserves d'oiseaux d'Asie du Sud-Est. Observation ornithologique et découverte du village flottant.
+Déjeuner chez l'habitant, dîner libre.
 
-Jour 5 – Route vers Phnom Penh
-Transfert en bus vers Phnom Penh. Balade libre en fin de journée le long du fleuve.
+Jour 5 – Siem Reap → Battambang (170 km)
+Départ pour Battambang. Visite du temple en ruine de Banteay Chhmar. À l'arrivée, balade dans la vieille ville coloniale et observation du vol des chauves-souris au coucher du soleil.
+Déjeuner inclus, dîner libre.
 
-Jour 6 – Découverte de Phnom Penh et départ
-Visite du Palais Royal, de la Pagode d'Argent et du marché central. Transfert à l'aéroport pour votre vol de retour.
+Jour 6 – Vie locale à Battambang
+Visite du marché coloré et découverte des productions artisanales : galettes de riz, chips de banane, alcool de riz, gâteaux de riz gluant, etc.
+L'après-midi, visite d'une ancienne maison coloniale et d'une pagode. Expérience du célèbre « train en bambou » et spectacle de cirque local en soirée.
+Déjeuner inclus, dîner libre.
+
+Jour 7 – Battambang → Phnom Penh (291 km)
+Route vers Phnom Penh avec plusieurs arrêts en chemin. Visite de la colline royale et d'un atelier d'orfèvres avant d'arriver dans la capitale.
+Déjeuner inclus, dîner libre.
+
+Jour 8 – Découverte de Phnom Penh
+Visite du Palais Royal, de la Pagode d'Argent et du Musée National des Beaux-Arts.
+L'après-midi, découverte de la colline de Madame Penh et de la pagode Wat Ounalom.
+Déjeuner inclus, dîner libre.
+
+Jour 9 – Phnom Penh → Kratie (240 km)
+Départ vers Kratie avec arrêt à Skun (dégustation d'insectes) et découverte de Kampong Cham (plantations et vergers). Observation des dauphins d'eau douce du Mékong à l'arrivée.
+Déjeuner inclus, dîner libre.
+
+Jour 10 – Vie locale à Kratie
+Balade à vélo autour de l'île de Koh Trong et cours de cuisine chez l'habitant. Après-midi libre pour détente.
+Dîner libre.
+
+Jour 11 – Kratie → Phnom Penh (240 km)
+Retour à Phnom Penh. Tour de ville en tuk-tuk dans l'après-midi.
+Déjeuner inclus, dîner libre.
+
+Jour 12 – Journée libre à Phnom Penh
+Temps libre pour vos découvertes personnelles ou la détente.
+Repas libres.
+
+Jour 13 – Départ vers le Vietnam
+Transfert à l'aéroport pour votre vol international.
 Fin de nos services.`,
     highlights: [
-      "Arrivée à Siem Reap",
-      "Angkor Thom et le Bayon",
-      "Terrasse des Éléphants",
-      "Temple Ta Prohm mystique",
-      "Temple d'Angkor Wat",
-      "Banteay Srei, citadelle des femmes",
-      "Villages flottants du lac Tonlé Sap",
-      "Route vers Phnom Penh",
+      "Lever du soleil sur Angkor Wat",
+      "Temple hindouiste de Preah Vihear",
+      "Réserve ornithologique de Prek Toal",
+      "Vieille ville coloniale de Battambang",
+      "Train en bambou et spectacle de cirque",
       "Palais Royal et Pagode d'Argent",
-      "Marché central de Phnom Penh"
+      "Observation des dauphins du Mékong à Kratie",
+      "Cours de cuisine chez l'habitant",
+      "Balade à vélo sur l'île de Koh Trong",
+      "Découverte de Kampong Cham"
     ],
     includes: [
-      "Hébergements avec petit-déjeuner",
-      "Guide francophone privé",
-      "Transports et entrées aux sites",
+      "Hébergements avec petits-déjeuners",
+      "Transferts et transports mentionnés",
+      "Droits d'entrée sur les sites et excursions",
+      "Déjeuners mentionnés au programme",
+      "Spectacles culturels à Siem Reap et Battambang",
       "Non inclus : Assurances, pourboires et dépenses personnelles"
     ]
   },
