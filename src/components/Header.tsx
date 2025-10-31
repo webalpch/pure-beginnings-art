@@ -37,7 +37,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="Saveurs du Cambodge Logo" 
-              className="h-24 w-auto"
+              className="h-16 w-auto"
             />
           </div>
 
