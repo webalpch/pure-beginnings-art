@@ -145,7 +145,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-white font-semibold">Email</div>
-                    <div className="text-white/80">info@routesducambodge.com</div>
+                    <div className="text-white/80">info@saveursducambodge.com</div>
                     <div className="text-white/60 text-sm">Réponse sous 24h</div>
                   </div>
                 </div>
