@@ -876,57 +876,54 @@ const ToursSection = () => {
 
       {/* Tour Detail Modal */}
       <Dialog open={!!selectedTour} onOpenChange={() => setSelectedTour(null)}>
-        <DialogContent className="max-w-2xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto mx-2 sm:mx-4 lg:mx-auto my-4 sm:my-8 w-[calc(100vw-1rem)] sm:w-full">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6 gap-3 sm:gap-4 w-[95vw] sm:w-full">
           {selectedTour && (
             <>
-              {/* Mobile drag indicator */}
-              <div className="block sm:hidden w-12 h-1 bg-muted-foreground/30 rounded-full mx-auto mb-4 -mt-2"></div>
-              
-              <DialogHeader>
-                <DialogTitle className="text-xl sm:text-2xl font-bold text-royal-blue">
+              <DialogHeader className="pr-8">
+                <DialogTitle className="text-lg sm:text-xl md:text-2xl font-bold text-royal-blue text-left">
                   {selectedTour.title}
                 </DialogTitle>
               </DialogHeader>
               
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 <img
                   src={selectedTour.image}
                   alt={selectedTour.title}
-                  className="w-full h-64 object-cover rounded-xl"
+                  className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg sm:rounded-xl"
                 />
                 
-                <div className="flex flex-wrap gap-4 text-sm">
-                  <div className="flex items-center gap-2 bg-secondary px-3 py-2 rounded-lg">
-                    <Clock size={16} className="text-cambodia-red" />
+                <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
+                  <div className="flex items-center gap-1.5 sm:gap-2 bg-secondary px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg">
+                    <Clock size={14} className="text-cambodia-red flex-shrink-0" />
                     <span className="font-medium">{selectedTour.duration}</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-secondary px-3 py-2 rounded-lg">
-                    <Users size={16} className="text-cambodia-red" />
+                  <div className="flex items-center gap-1.5 sm:gap-2 bg-secondary px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg">
+                    <Users size={14} className="text-cambodia-red flex-shrink-0" />
                     <span className="font-medium">{selectedTour.participants}</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-secondary px-3 py-2 rounded-lg">
-                    <MapPin size={16} className="text-cambodia-red" />
+                  <div className="flex items-center gap-1.5 sm:gap-2 bg-secondary px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg">
+                    <MapPin size={14} className="text-cambodia-red flex-shrink-0" />
                     <span className="font-medium">Cambodge</span>
                   </div>
                 </div>
                 
-                <div className="text-2xl font-bold text-cambodia-red">
+                <div className="text-xl sm:text-2xl font-bold text-cambodia-red">
                   {selectedTour.price}
                 </div>
                 
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-5 md:space-y-6">
                   <div>
-                    <h4 className="font-bold text-foreground text-lg mb-4 border-b border-border pb-2">
+                    <h4 className="font-bold text-foreground text-base sm:text-lg mb-3 sm:mb-4 border-b border-border pb-2">
                       Description du circuit
                     </h4>
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                       {selectedTour.description.split('\n\n').map((paragraph, index) => {
                         const trimmedParagraph = paragraph.trim();
                         
                         // Check if paragraph looks like a main title (short and ends with :)
                         if (trimmedParagraph.length < 80 && trimmedParagraph.endsWith(':')) {
                           return (
-                            <h5 key={index} className="font-bold text-foreground text-base mt-6 mb-3 text-cambodia-red border-l-4 border-cambodia-red pl-4">
+                            <h5 key={index} className="font-bold text-foreground text-sm sm:text-base mt-4 sm:mt-6 mb-2 sm:mb-3 text-cambodia-red border-l-4 border-cambodia-red pl-3 sm:pl-4">
                               {trimmedParagraph}
                             </h5>
                           );
@@ -935,11 +932,11 @@ const ToursSection = () => {
                         // Check if it's an itinerary item (starts with "Jour")
                         if (trimmedParagraph.startsWith('Jour ')) {
                           return (
-                            <div key={index} className="bg-gradient-to-r from-primary/5 to-transparent p-4 rounded-lg border-l-4 border-cambodia-red">
-                              <div className="font-semibold text-foreground mb-2 text-cambodia-red">
+                            <div key={index} className="bg-gradient-to-r from-primary/5 to-transparent p-3 sm:p-4 rounded-lg border-l-4 border-cambodia-red">
+                              <div className="font-semibold text-foreground mb-1.5 sm:mb-2 text-cambodia-red text-sm sm:text-base">
                                 {trimmedParagraph.split(':')[0]}:
                               </div>
-                              <p className="text-muted-foreground leading-relaxed">
+                              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                                 {trimmedParagraph.split(':').slice(1).join(':').trim()}
                               </p>
                             </div>
@@ -949,10 +946,10 @@ const ToursSection = () => {
                         // Check if it's pricing info
                         if (trimmedParagraph.includes('€') || trimmedParagraph.includes('Tarif')) {
                           return (
-                            <div key={index} className="bg-secondary/30 p-4 rounded-lg border border-border">
+                            <div key={index} className="bg-secondary/30 p-3 sm:p-4 rounded-lg border border-border">
                               <div className="flex items-start gap-2">
                                 
-                                <div className="font-medium text-foreground">
+                                <div className="font-medium text-foreground text-sm sm:text-base">
                                   {trimmedParagraph.split('\n').map((line, lineIndex) => (
                                     <div key={lineIndex} className={lineIndex > 0 ? "mt-1" : ""}>
                                       {line.trim()}
@@ -972,11 +969,11 @@ const ToursSection = () => {
                         // Check if it's an itinerary option (contains "Itinéraire")
                         if (trimmedParagraph.includes('Itinéraire ')) {
                           return (
-                            <div key={index} className="bg-amber-50 dark:bg-amber-950/20 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-                              <h6 className="font-bold text-amber-700 dark:text-amber-300 mb-3 flex items-center gap-2">
+                            <div key={index} className="bg-amber-50 dark:bg-amber-950/20 p-3 sm:p-4 rounded-lg border border-amber-200 dark:border-amber-800">
+                              <h6 className="font-bold text-amber-700 dark:text-amber-300 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
                                 <span>🗺️</span> {trimmedParagraph.split('\n')[0]}
                               </h6>
-                              <div className="space-y-2 text-sm text-muted-foreground">
+                              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
                                 {trimmedParagraph.split('\n').slice(1).map((line, lineIndex) => {
                                   const trimmedLine = line.trim();
                                   if (trimmedLine) {
@@ -1019,7 +1016,7 @@ const ToursSection = () => {
                           };
 
                           return (
-                            <p key={index} className="text-muted-foreground leading-relaxed">
+                            <p key={index} className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                               {formatTextWithBoldPlaces(trimmedParagraph)}
                             </p>
                           );
@@ -1032,24 +1029,24 @@ const ToursSection = () => {
                 </div>
                 
                 <div>
-                  <h4 className="font-bold text-foreground mb-3">Points forts :</h4>
-                  <ul className="space-y-2">
+                  <h4 className="font-bold text-foreground mb-2 sm:mb-3 text-base sm:text-lg">Points forts :</h4>
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {selectedTour.highlights.map((highlight, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <span className="text-cambodia-red font-bold mt-0.5 flex-shrink-0">•</span>
-                        <span className="text-muted-foreground">{highlight}</span>
+                        <span className="text-cambodia-red font-bold mt-0.5 flex-shrink-0 text-sm sm:text-base">•</span>
+                        <span className="text-muted-foreground text-sm sm:text-base">{highlight}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 className="font-bold text-foreground mb-3">Inclus :</h4>
-                  <ul className="space-y-2">
+                  <h4 className="font-bold text-foreground mb-2 sm:mb-3 text-base sm:text-lg">Inclus :</h4>
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {selectedTour.includes.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <span className="text-green-500 font-bold mt-0.5">✓</span>
-                        <span className="text-muted-foreground">{item}</span>
+                        <span className="text-green-500 font-bold mt-0.5 flex-shrink-0">✓</span>
+                        <span className="text-muted-foreground text-sm sm:text-base">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -1059,9 +1056,9 @@ const ToursSection = () => {
                   variant="whatsapp" 
                   size="lg"
                   onClick={() => openWhatsApp(selectedTour.title)}
-                  className="w-full text-lg py-4 h-auto"
+                  className="w-full text-base sm:text-lg py-3 sm:py-4 h-auto sticky bottom-0 bg-[#25D366] shadow-lg"
                 >
-                  <MessageCircle className="w-6 h-6 mr-2" />
+                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
                   Réserver ce tour via WhatsApp
                 </Button>
               </div>
