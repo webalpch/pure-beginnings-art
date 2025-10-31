@@ -21,14 +21,36 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais via WhatsApp.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    
+    try {
+      // Encode form data for Netlify
+      const formElement = e.target as HTMLFormElement;
+      const formDataToSend = new FormData(formElement);
+      
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formDataToSend as any).toString(),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message envoyé !",
+          description: "Nous vous répondrons dans les plus brefs délais.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Erreur lors de l'envoi");
+      }
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer ou nous contacter via WhatsApp.",
+        variant: "destructive",
+      });
+    }
   };
 
   const openWhatsApp = () => {
@@ -60,7 +82,9 @@ const ContactSection = () => {
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-4 sm:p-6 lg:p-8">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Envoyez-nous un message</h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" name="contact" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="contact" />
+              
               <div>
                 <Input
                   name="name"
