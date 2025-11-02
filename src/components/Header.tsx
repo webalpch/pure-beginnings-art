@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/saveurs-cambodge-logo.png";
+import logo from "@/assets/routes-cambodge-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +36,7 @@ const Header = () => {
           <div className="flex items-center">
             <img 
               src={logo} 
-              alt="Saveurs du Cambodge Logo" 
+              alt="Routes du Cambodge Logo" 
               className="h-16 w-auto"
             />
           </div>
