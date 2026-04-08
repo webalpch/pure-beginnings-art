@@ -1,71 +1,126 @@
-import { Button } from "./ui/button";
-import { Star, Award, Languages, Heart, MessageCircle } from "lucide-react";
-const guidesTeamImage = "/lovable-uploads/guides-team.jpg";
-const GuidesSection = () => {
-  const openWhatsApp = () => {
-    window.open("https://wa.me/+85511926262?text=Bonjour, je souhaite en savoir plus sur vos guides francophones", "_blank");
-  };
-  return <section id="guides" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-hero">
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-6 sm:mb-10 md:mb-12 lg:mb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6 px-2">
-            Rencontrez vos <span className="text-yellow-400">Guides Passionnés</span>
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto px-3 sm:px-4">
-            Rin Sovan Rithy et Nan Lady, vos guides francophones expérimentés, vous feront découvrir 
-            le Cambodge authentique avec passion et expertise.
-          </p>
-        </div>
+import { MessageCircle, Award, Languages, Star } from "lucide-react";
 
-        {/* Guide Team Presentation */}
-        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 mb-6 sm:mb-10 md:mb-12 lg:mb-16 hover:bg-white/15 transition-all duration-300">
-          <div className="flex flex-col items-center text-center">
-            <div className="mb-4 sm:mb-6 md:mb-8">
-              <img 
-                src={guidesTeamImage} 
-                alt="Nan Lady et Rin Sovan Rithy - Guides francophones" 
-                className="w-full max-w-2xl rounded-xl sm:rounded-2xl object-cover border-2 sm:border-4 border-white/30 shadow-elegant" 
-              />
-            </div>
-            
-            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4">
-              Nan Lady & Rin Sovan Rithy
-            </h3>
-            <p className="text-yellow-400 font-semibold mb-4 sm:mb-5 md:mb-6 text-base sm:text-lg md:text-xl">Vos Guides Francophones Passionnés</p>
-            
-            <p className="text-white/90 mb-6 sm:mb-7 md:mb-8 leading-relaxed text-sm sm:text-base md:text-lg max-w-3xl px-2">
-              Avec plus de <strong>15 années d'expérience chacun</strong>, Nan Lady et Rin Sovan Rithy 
-              vous accompagnent pour découvrir le Cambodge authentique. Experts des temples d'Angkor, 
-              passionnés d'histoire et de culture khmère, ils vous feront vivre des expériences 
-              inoubliables, que ce soit dans les sites emblématiques ou hors des sentiers battus.
-            </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full max-w-2xl">
-              <div className="flex flex-col items-center gap-1.5 sm:gap-2 text-white/90">
-                <Languages size={20} className="sm:w-6 sm:h-6 text-yellow-400" />
-                <span className="font-semibold text-xs sm:text-sm md:text-base">Français, Khmer, Anglais</span>
-              </div>
-              <div className="flex flex-col items-center gap-1.5 sm:gap-2 text-white/90">
-                <Award size={20} className="sm:w-6 sm:h-6 text-yellow-400" />
-                <span className="font-semibold text-xs sm:text-sm md:text-base">Guides Certifiés</span>
-              </div>
-              <div className="flex flex-col items-center gap-1.5 sm:gap-2 text-white/90">
-                <Heart size={20} className="sm:w-6 sm:h-6 text-yellow-400" />
-                <span className="font-semibold text-xs sm:text-sm md:text-base">Passion Authentique</span>
-              </div>
-            </div>
+const guidesTeamImage = "/lovable-uploads/guides-team.jpg";
+
+const guides = [
+  {
+    name: "Nan Lady",
+    role: "Guide francophone officiel",
+    experience: "15 ans d'expérience",
+    specialite: "Temples d'Angkor, histoire khmère",
+    reviews: "71 avis 5★ TripAdvisor",
+    whatsapp: "https://wa.me/+85512929279?text=Bonjour Lady, je souhaite organiser un tour au Cambodge",
+  },
+  {
+    name: "Rin Sovan Rithy",
+    role: "Guide francophone officiel",
+    experience: "15 ans d'expérience",
+    specialite: "Circuits culturels, régions méconnues",
+    reviews: "Guide certifié Ministère",
+    whatsapp: "https://wa.me/+85512929279?text=Bonjour, je souhaite organiser un tour au Cambodge avec Rin Sovan Rithy",
+  },
+];
+
+const GuidesSection = () => {
+  return (
+    <section id="guides" className="py-16 sm:py-20 md:py-28 bg-espresso overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+
+        {/* Header */}
+        <div className="mb-14 sm:mb-20">
+          <p className="font-sans text-xs font-medium tracking-[0.2rem] uppercase text-white/40 mb-4">
+            Votre équipe
+          </p>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-white leading-tight">
+            Des guides qui<br />
+            <span className="italic text-amber-200/90">connaissent chaque pierre</span>
+          </h2>
+          <div className="flex items-center gap-3 mt-6">
+            <div className="h-px w-12 bg-white/20" />
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center">
-          <Button variant="hero" size="lg" onClick={openWhatsApp} className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto bg-white text-royal-blue hover:bg-white/90 w-full sm:w-auto">
-            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
-            Rencontrer nos guides
-          </Button>
+        {/* Layout photo + guides */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 sm:mb-20">
+          {/* Photo équipe */}
+          <div className="relative">
+            <img
+              src={guidesTeamImage}
+              alt="Nan Lady et Rin Sovan Rithy — Guides francophones au Cambodge"
+              className="w-full rounded-2xl object-cover aspect-[4/3]"
+            />
+            {/* Badge social proof sur la photo */}
+            <div className="absolute bottom-4 right-4 bg-cambodia-red text-white rounded-2xl px-4 py-3 shadow-elegant hidden sm:block">
+              <div className="flex gap-0.5 mb-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-white text-white" />
+                ))}
+              </div>
+              <div className="font-sans text-xs font-light opacity-80">71 avis TripAdvisor</div>
+            </div>
+          </div>
+
+          {/* Cards guides */}
+          <div className="flex flex-col gap-5">
+            {guides.map((guide, i) => (
+              <div key={i} className="bg-white/8 border border-white/12 rounded-2xl p-6 hover:bg-white/12 transition-colors">
+                {/* Header guide */}
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="font-display text-2xl sm:text-3xl font-medium text-white mb-1">
+                      {guide.name}
+                    </h3>
+                    <p className="font-sans text-white/60 text-sm font-light">{guide.role}</p>
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-cambodia-red/20 flex items-center justify-center flex-shrink-0">
+                    <Award className="w-5 h-5 text-amber-300" />
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className="flex flex-wrap gap-3 mb-5">
+                  <span className="font-sans text-xs text-white/70 bg-white/8 px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                    <Languages className="w-3 h-3" /> Français · Khmer · Anglais
+                  </span>
+                  <span className="font-sans text-xs text-white/70 bg-white/8 px-3 py-1.5 rounded-full">
+                    {guide.experience}
+                  </span>
+                  <span className="font-sans text-xs text-amber-300/80 bg-amber-300/10 px-3 py-1.5 rounded-full">
+                    {guide.reviews}
+                  </span>
+                </div>
+
+                <p className="font-sans text-sm text-white/50 font-light mb-5">
+                  Spécialité : {guide.specialite}
+                </p>
+
+                {/* WhatsApp direct */}
+                <a
+                  href={guide.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20b858] text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors w-full justify-center sm:w-auto"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Contacter {guide.name.split(" ")[0]}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Citation */}
+        <div className="border-t border-white/10 pt-10 text-center">
+          <p className="font-display text-2xl sm:text-3xl font-light text-white/70 italic max-w-2xl mx-auto">
+            "Notre objectif n'est pas de vous faire visiter le Cambodge,
+            mais de vous le faire <span className="text-amber-200/90 not-italic font-medium">ressentir</span>."
+          </p>
+          <p className="font-sans text-white/30 text-sm mt-4">— Nan Lady & Rin Sovan Rithy</p>
+        </div>
+
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default GuidesSection;

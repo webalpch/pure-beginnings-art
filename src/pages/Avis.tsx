@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -105,6 +106,59 @@ const avisData = [{
   photos: []
 }];
 const Avis = () => {
+  useEffect(() => {
+    const prevTitle = document.title;
+    const prevDescription = document.querySelector('meta[name="description"]')?.getAttribute("content") || "";
+    const prevOgTitle = document.querySelector('meta[property="og:title"]')?.getAttribute("content") || "";
+    const prevOgDesc = document.querySelector('meta[property="og:description"]')?.getAttribute("content") || "";
+
+    document.title = "Avis clients – Routes du Cambodge | 71 avis 5 étoiles";
+
+    const setMeta = (selector: string, attr: string, value: string) => {
+      const el = document.querySelector(selector);
+      if (el) el.setAttribute(attr, value);
+    };
+
+    setMeta('meta[name="description"]', "content", "Découvrez les avis de nos voyageurs satisfaits. 71 avis 5 étoiles sur nos tours avec guides francophones au Cambodge. Angkor, Mekong, Phnom Penh.");
+    setMeta('meta[property="og:title"]', "content", "Avis clients – Routes du Cambodge | 71 avis 5 étoiles");
+    setMeta('meta[property="og:description"]', "content", "71 avis 5 étoiles de voyageurs français ayant découvert le Cambodge avec nos guides francophones. Angkor Wat, Mekong, Phnom Penh.");
+
+    // Schema.org Reviews JSON-LD
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Routes du Cambodge",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "71",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": avisData.slice(0, 5).map((avis) => ({
+        "@type": "Review",
+        "author": { "@type": "Person", "name": avis.nom },
+        "reviewRating": { "@type": "Rating", "ratingValue": String(avis.note), "bestRating": "5" },
+        "reviewBody": avis.commentaire,
+        "datePublished": avis.date,
+        "name": avis.titre,
+      })),
+    };
+    const scriptEl = document.createElement("script");
+    scriptEl.type = "application/ld+json";
+    scriptEl.id = "schema-reviews";
+    scriptEl.textContent = JSON.stringify(schema);
+    document.head.appendChild(scriptEl);
+
+    return () => {
+      document.title = prevTitle;
+      setMeta('meta[name="description"]', "content", prevDescription);
+      setMeta('meta[property="og:title"]', "content", prevOgTitle);
+      setMeta('meta[property="og:description"]', "content", prevOgDesc);
+      document.getElementById("schema-reviews")?.remove();
+    };
+  }, []);
+
   const renderStars = (rating: number) => {
     return Array.from({
       length: 5

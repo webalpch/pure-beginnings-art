@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Badge } from "./ui/badge";
-import { Clock, Users, MapPin, Star, MessageCircle } from "lucide-react";
+import { Clock, Users, MessageCircle, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-interface Tour {
+export interface Tour {
   id: string;
   title: string;
   image: string;
@@ -16,7 +17,7 @@ interface Tour {
   includes: string[];
 }
 
-const tours: Tour[] = [
+export const tours: Tour[] = [
   {
     id: "option-a-1-jour",
     title: "Option A: pour une journée à Siem Reap",
@@ -783,289 +784,168 @@ Fin de nos services.`,
   },
 ];
 
-const ToursSection = () => {
-  const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+type FilterKey = "tous" | "1j" | "2-3j" | "4-7j" | "7j+";
 
-  const openWhatsApp = (tourTitle: string) => {
-    const message = `Bonjour, je souhaite réserver le tour "${tourTitle}". Pouvez-vous me donner plus d'informations ?`;
-    window.open(`https://wa.me/+85511926262?text=${encodeURIComponent(message)}`, "_blank");
+const filters: { key: FilterKey; label: string }[] = [
+  { key: "tous", label: "Tous" },
+  { key: "1j",   label: "1 jour" },
+  { key: "2-3j", label: "2–3 jours" },
+  { key: "4-7j", label: "4–7 jours" },
+  { key: "7j+",  label: "7 jours +" },
+];
+
+const getDurationKey = (duration: string): FilterKey => {
+  const n = parseInt(duration);
+  if (n === 1) return "1j";
+  if (n <= 3) return "2-3j";
+  if (n <= 7) return "4-7j";
+  return "7j+";
+};
+
+const popularTourIds = new Set(["option-a-1-jour", "option-b-2-jours", "option-k-7-jours-phnom-penh"]);
+
+const ToursSection = () => {
+  const [activeFilter, setActiveFilter] = useState<FilterKey>("tous");
+  const navigate = useNavigate();
+
+  const filtered = activeFilter === "tous"
+    ? tours
+    : tours.filter((t) => getDurationKey(t.duration) === activeFilter);
+
+  const openWhatsApp = () => {
+    window.open("https://wa.me/+85512929279?text=Bonjour, je souhaite créer un itinéraire sur-mesure au Cambodge", "_blank");
   };
 
   return (
-    <section id="tours" className="py-12 sm:py-16 lg:py-20 bg-background">
+    <section id="tours" className="py-16 sm:py-20 md:py-28 bg-[hsl(35,40%,96%)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <Badge variant="outline" className="mb-4 text-royal-blue border-royal-blue">
+
+        {/* Header */}
+        <div className="mb-10 sm:mb-14">
+          <p className="font-sans text-xs font-medium tracking-[0.2rem] uppercase text-cambodia-red mb-4">
             Nos Expériences
-          </Badge>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-            Découvrez nos <span className="text-cambodia-red">Tours</span>
-          </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-            Choisissez parmi nos expériences soigneusement conçues pour vous faire vivre 
-            l'authenticité du Cambodge. Chaque tour est personnalisable selon vos envies.
           </p>
+          <div className="flex items-end justify-between flex-wrap gap-4">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-foreground leading-tight">
+              {tours.length} circuits<br />
+              <span className="italic">privés et personnalisés</span>
+            </h2>
+            <p className="font-sans text-sm text-muted-foreground max-w-xs font-light pb-1">
+              De 1 jour à 16 jours — devis gratuit, sans engagement, réponse sous 1h.
+            </p>
+          </div>
+          <div className="h-px w-full bg-border mt-6" />
         </div>
 
-        {/* Tours Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
-          {tours.map((tour) => (
-            <div
-              key={tour.id}
-              onClick={() => setSelectedTour(tour)}
-              className="group cursor-pointer bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2"
+        {/* Filtres durée */}
+        <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
+          {filters.map((f) => (
+            <button
+              key={f.key}
+              onClick={() => setActiveFilter(f.key)}
+              className={cn(
+                "font-sans px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border",
+                activeFilter === f.key
+                  ? "bg-espresso text-white border-espresso"
+                  : "bg-white text-foreground border-border hover:border-espresso/40 hover:text-foreground"
+              )}
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={tour.image}
-                  alt={tour.title}
-                  className="w-full h-40 sm:h-44 md:h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3">
-                  <h3 className="text-white font-bold text-sm sm:text-base lg:text-lg leading-tight">
-                    {tour.title}
-                  </h3>
-                </div>
-              </div>
-              
-              <div className="p-4">
-                <div className="mb-3">
-                  <div className="flex items-center gap-1 text-cambodia-red text-sm font-semibold">
-                    <Clock size={14} />
-                    {tour.duration}
-                  </div>
-                </div>
-                
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Users size={14} />
-                    Groupe privé
-                  </div>
-                  <div className="text-lg font-bold text-royal-blue">
-                    {tour.price}
-                  </div>
-                </div>
-                
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full group-hover:bg-royal-blue group-hover:text-white transition-colors"
-                >
-                  Voir les détails
-                </Button>
-              </div>
-            </div>
+              {f.label}
+              <span className={cn("ml-1.5 text-xs opacity-60")}>
+                ({f.key === "tous" ? tours.length : tours.filter(t => getDurationKey(t.duration) === f.key).length})
+              </span>
+            </button>
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center">
-          <Button 
-            variant="whatsapp" 
+        {/* Grille de tours */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 mb-12 sm:mb-16">
+          {filtered.map((tour) => {
+            const isPopular = popularTourIds.has(tour.id);
+            return (
+              <div
+                key={tour.id}
+                onClick={() => navigate(`/tours/${tour.id}`)}
+                className={cn(
+                  "group cursor-pointer bg-white rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant",
+                  isPopular ? "border-cambodia-red/30 shadow-sm" : "border-border shadow-sm hover:border-cambodia-red/20"
+                )}
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden h-44 sm:h-48">
+                  <img
+                    src={tour.image}
+                    alt={tour.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+                  {/* Badges image */}
+                  <div className="absolute top-3 left-3 flex gap-1.5">
+                    <span className="flex items-center gap-1 bg-black/55 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full font-sans">
+                      <Clock size={10} />
+                      {tour.duration}
+                    </span>
+                    {isPopular && (
+                      <span className="bg-cambodia-red text-white text-xs font-semibold px-2.5 py-1 rounded-full font-sans">
+                        Populaire
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Prix sur l'image */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+                    <span className="font-sans text-white/80 text-xs font-light">
+                      <Users size={10} className="inline mr-1" />Groupe privé
+                    </span>
+                    <span className="font-sans text-white text-xs font-semibold bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                      {tour.price === "Tarif sur demande" || tour.price === "Dépend des itinéraires choisis"
+                        ? "Devis gratuit"
+                        : "À partir de " + tour.price.split(" ")[0]}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-4">
+                  <h3 className="font-display text-lg font-medium text-foreground leading-snug mb-3 group-hover:text-cambodia-red transition-colors line-clamp-2">
+                    {tour.title}
+                  </h3>
+
+                  <div className="flex items-center justify-between text-cambodia-red text-sm font-medium group-hover:gap-2 transition-all font-sans">
+                    <span>Voir le programme</span>
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* CTA sur-mesure */}
+        <div className="bg-espresso rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="font-sans text-xs font-medium tracking-[0.15rem] uppercase text-white/40 mb-2">Sur mesure</p>
+            <h3 className="font-display text-2xl sm:text-3xl font-light text-white mb-1">
+              Votre itinéraire <span className="italic">idéal</span> n'est pas dans la liste ?
+            </h3>
+            <p className="font-sans text-white/60 text-sm font-light">
+              Devis gratuit · Réponse sous 1h · Aucun engagement
+            </p>
+          </div>
+          <Button
+            variant="whatsapp"
             size="lg"
-            onClick={() => openWhatsApp("plusieurs tours")}
-            className="text-lg px-8 py-4 h-auto"
+            onClick={openWhatsApp}
+            className="font-sans text-base px-7 py-3.5 h-auto whitespace-nowrap flex-shrink-0"
           >
-            <MessageCircle className="w-6 h-6 mr-2" />
-            Créer mon itinéraire sur-mesure
+            <MessageCircle className="w-5 h-5 mr-2" />
+            Créer mon itinéraire
           </Button>
         </div>
+
       </div>
-
-      {/* Tour Detail Modal */}
-      <Dialog open={!!selectedTour} onOpenChange={() => setSelectedTour(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6 gap-3 sm:gap-4 w-[95vw] sm:w-full">
-          {selectedTour && (
-            <>
-              <DialogHeader className="pr-8">
-                <DialogTitle className="text-lg sm:text-xl md:text-2xl font-bold text-royal-blue text-left">
-                  {selectedTour.title}
-                </DialogTitle>
-              </DialogHeader>
-              
-              <div className="space-y-3 sm:space-y-4 md:space-y-6">
-                <img
-                  src={selectedTour.image}
-                  alt={selectedTour.title}
-                  className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg sm:rounded-xl"
-                />
-                
-                <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
-                  <div className="flex items-center gap-1.5 sm:gap-2 bg-secondary px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg">
-                    <Clock size={14} className="text-cambodia-red flex-shrink-0" />
-                    <span className="font-medium">{selectedTour.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 bg-secondary px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg">
-                    <Users size={14} className="text-cambodia-red flex-shrink-0" />
-                    <span className="font-medium">{selectedTour.participants}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 bg-secondary px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg">
-                    <MapPin size={14} className="text-cambodia-red flex-shrink-0" />
-                    <span className="font-medium">Cambodge</span>
-                  </div>
-                </div>
-                
-                <div className="text-xl sm:text-2xl font-bold text-cambodia-red">
-                  {selectedTour.price}
-                </div>
-                
-                <div className="space-y-4 sm:space-y-5 md:space-y-6">
-                  <div>
-                    <h4 className="font-bold text-foreground text-base sm:text-lg mb-3 sm:mb-4 border-b border-border pb-2">
-                      Description du circuit
-                    </h4>
-                    <div className="space-y-3 sm:space-y-4">
-                      {selectedTour.description.split('\n\n').map((paragraph, index) => {
-                        const trimmedParagraph = paragraph.trim();
-                        
-                        // Check if paragraph looks like a main title (short and ends with :)
-                        if (trimmedParagraph.length < 80 && trimmedParagraph.endsWith(':')) {
-                          return (
-                            <h5 key={index} className="font-bold text-foreground text-sm sm:text-base mt-4 sm:mt-6 mb-2 sm:mb-3 text-cambodia-red border-l-4 border-cambodia-red pl-3 sm:pl-4">
-                              {trimmedParagraph}
-                            </h5>
-                          );
-                        }
-                        
-                        // Check if it's an itinerary item (starts with "Jour")
-                        if (trimmedParagraph.startsWith('Jour ')) {
-                          return (
-                            <div key={index} className="bg-gradient-to-r from-primary/5 to-transparent p-3 sm:p-4 rounded-lg border-l-4 border-cambodia-red">
-                              <div className="font-semibold text-foreground mb-1.5 sm:mb-2 text-cambodia-red text-sm sm:text-base">
-                                {trimmedParagraph.split(':')[0]}:
-                              </div>
-                              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                                {trimmedParagraph.split(':').slice(1).join(':').trim()}
-                              </p>
-                            </div>
-                          );
-                        }
-                        
-                        // Check if it's pricing info
-                        if (trimmedParagraph.includes('€') || trimmedParagraph.includes('Tarif')) {
-                          return (
-                            <div key={index} className="bg-secondary/30 p-3 sm:p-4 rounded-lg border border-border">
-                              <div className="flex items-start gap-2">
-                                
-                                <div className="font-medium text-foreground text-sm sm:text-base">
-                                  {trimmedParagraph.split('\n').map((line, lineIndex) => (
-                                    <div key={lineIndex} className={lineIndex > 0 ? "mt-1" : ""}>
-                                      {line.trim()}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        }
-                        
-                        // Skip "Inclus" or "Non inclus" as it's already shown below
-                        if (trimmedParagraph.includes('Inclus :') || trimmedParagraph.includes('Non inclus :')) {
-                          return null;
-                        }
-                        
-                        // Check if it's an itinerary option (contains "Itinéraire")
-                        if (trimmedParagraph.includes('Itinéraire ')) {
-                          return (
-                            <div key={index} className="bg-amber-50 dark:bg-amber-950/20 p-3 sm:p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-                              <h6 className="font-bold text-amber-700 dark:text-amber-300 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
-                                <span>🗺️</span> {trimmedParagraph.split('\n')[0]}
-                              </h6>
-                              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
-                                {trimmedParagraph.split('\n').slice(1).map((line, lineIndex) => {
-                                  const trimmedLine = line.trim();
-                                  if (trimmedLine) {
-                                    return (
-                                      <p key={lineIndex} className="leading-relaxed">
-                                        {trimmedLine}
-                                      </p>
-                                    );
-                                  }
-                                  return null;
-                                })}
-                              </div>
-                            </div>
-                          );
-                        }
-                        
-                        // Regular paragraph
-                        if (trimmedParagraph) {
-                          // Function to make city names and important places bold
-                          const formatTextWithBoldPlaces = (text: string) => {
-                            const places = [
-                              'Phnom Penh', 'Siem Reap', 'Battambang', 'Kratie', 'Kampot', 'Kep',
-                              'Angkor Wat', 'Angkor Thom', 'Ta Prohm', 'Bayon', 'Baphuon', 
-                              'Preah Khan', 'Banteay Srei', 'Phnom Kulen', 'Tonlé Sap',
-                              'Chau Doc', 'Kampong Pluk', 'Koh Trong', 'Preah Dak',
-                              'Palais Royal', 'Pagode d\'Argent', 'Musée National'
-                            ];
-                            
-                            let formattedText = text;
-                            places.forEach(place => {
-                              const regex = new RegExp(`\\b${place}\\b`, 'gi');
-                              formattedText = formattedText.replace(regex, `**${place}**`);
-                            });
-                            
-                            // Split by ** to create bold spans
-                            const parts = formattedText.split('**');
-                            return parts.map((part, index) => 
-                              index % 2 === 1 ? <strong key={index} className="font-bold text-foreground">{part}</strong> : part
-                            );
-                          };
-
-                          return (
-                            <p key={index} className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                              {formatTextWithBoldPlaces(trimmedParagraph)}
-                            </p>
-                          );
-                        }
-                        
-                        return null;
-                      })}
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-foreground mb-2 sm:mb-3 text-base sm:text-lg">Points forts :</h4>
-                  <ul className="space-y-1.5 sm:space-y-2">
-                    {selectedTour.highlights.map((highlight, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-cambodia-red font-bold mt-0.5 flex-shrink-0 text-sm sm:text-base">•</span>
-                        <span className="text-muted-foreground text-sm sm:text-base">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-bold text-foreground mb-2 sm:mb-3 text-base sm:text-lg">Inclus :</h4>
-                  <ul className="space-y-1.5 sm:space-y-2">
-                    {selectedTour.includes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-green-500 font-bold mt-0.5 flex-shrink-0">✓</span>
-                        <span className="text-muted-foreground text-sm sm:text-base">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <Button 
-                  variant="whatsapp" 
-                  size="lg"
-                  onClick={() => openWhatsApp(selectedTour.title)}
-                  className="w-full text-base sm:text-lg py-3 sm:py-4 h-auto sticky bottom-0 bg-[#25D366] shadow-lg"
-                >
-                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
-                  Réserver ce tour via WhatsApp
-                </Button>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

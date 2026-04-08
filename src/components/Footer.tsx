@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { MessageCircle, Mail, Phone, MapPin, Facebook, Instagram, Star, Heart } from "lucide-react";
 const Footer = () => {
   const openWhatsApp = () => {
-    window.open("https://wa.me/+85511926262?text=Bonjour, je souhaite obtenir des informations sur vos tours au Cambodge", "_blank");
+    window.open("https://wa.me/+85512929279?text=Bonjour, je souhaite obtenir des informations sur vos tours au Cambodge", "_blank");
   };
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -71,6 +72,26 @@ const Footer = () => {
                   Contact
                 </button>
               </li>
+              <li>
+                <Link to="/avis" className="text-sm sm:text-base text-gray-300 hover:text-orange-400 transition-colors">
+                  Avis clients
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-sm sm:text-base text-gray-300 hover:text-orange-400 transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-sm sm:text-base text-gray-300 hover:text-orange-400 transition-colors">
+                  À propos
+                </Link>
+              </li>
+              <li>
+                <Link to="/politique-de-confidentialite" className="text-sm sm:text-base text-gray-300 hover:text-orange-400 transition-colors">
+                  Politique de confidentialité
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -81,7 +102,7 @@ const Footer = () => {
               <div className="flex items-center gap-2 sm:gap-3">
                 <Phone size={16} className="sm:w-[18px] sm:h-[18px] text-orange-400 flex-shrink-0" />
                 <div>
-                  <div className="text-white text-sm sm:text-base font-medium">+855 12 345 6789</div>
+                  <div className="text-white text-sm sm:text-base font-medium">+855 12 929 279</div>
                   <div className="text-gray-400 text-xs sm:text-sm">Disponible 24h/24</div>
                 </div>
               </div>
@@ -113,7 +134,7 @@ const Footer = () => {
                 <a href="https://www.instagram.com/la_dy_1987?igsh=bjBqcDI2cXNyZXJz" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
                   <Instagram size={16} className="sm:w-[18px] sm:h-[18px]" />
                 </a>
-                <a href="https://wa.me/+85511926262" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 whatsapp-button rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://wa.me/+85512929279" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 whatsapp-button rounded-full flex items-center justify-center hover:scale-110 transition-transform">
                   <MessageCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
                 </a>
               </div>

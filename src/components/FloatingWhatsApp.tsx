@@ -18,7 +18,7 @@ const FloatingWhatsApp = () => {
   }, []);
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/+85511926262?text=Bonjour, je souhaite obtenir des informations sur vos tours au Cambodge", "_blank");
+    window.open("https://wa.me/+85512929279?text=Bonjour, je souhaite obtenir des informations sur vos tours au Cambodge", "_blank");
   };
 
   return (

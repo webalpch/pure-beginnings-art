@@ -2,98 +2,116 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Cambodia Tours Brand Colors - Inspired by the logo */
+    /* ─── Brand Colors ─────────────────────────────── */
+    --cambodia-red: 17 65% 47%;          /* Terracotta Angkor #C4622D  */
     --cambodia-orange: 22 76% 39%;
     --cambodia-terracotta: 22 70% 35%;
-    --cambodia-teal: 180 100% 25%;
-    --cambodia-teal-light: 180 100% 35%;
+    --royal-blue: 220 55% 38%;           /* Accent secondaire bleu profond */
     --sunset-orange: 22 85% 50%;
     --pure-white: 0 0% 100%;
-    --warm-cream: 28 50% 97%;
-    --soft-beige: 28 25% 95%;
-    --deep-teal: 180 100% 15%;
-    
-    /* Gradient System - Cambodia Tours Theme */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--cambodia-orange)), hsl(var(--sunset-orange)));
+    --ivory: 35 40% 96%;                 /* #FAF7F2 fond ivoire chaud  */
+    --warm-sand: 30 28% 90%;             /* #EDE5D8 sections alternées */
+    --espresso: 20 40% 10%;              /* #1C1410 texte principal    */
+    --terracotta-light: 17 55% 55%;      /* Hover accent               */
+
+    /* Legacy aliases (garde la compatibilité composants existants) */
+    --cambodia-teal: 220 55% 38%;
+    --cambodia-teal-light: 220 45% 50%;
+    --deep-teal: 20 40% 10%;
+    --warm-cream: var(--ivory);
+    --soft-beige: 30 28% 90%;
+
+    /* ─── Gradient System ──────────────────────────── */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--cambodia-red)), hsl(var(--sunset-orange)));
     --gradient-sunset: linear-gradient(45deg, hsl(var(--cambodia-terracotta)), hsl(var(--sunset-orange)));
-    --gradient-teal: linear-gradient(135deg, hsl(var(--cambodia-teal)), hsl(var(--cambodia-teal-light)));
-    --gradient-temple: linear-gradient(180deg, hsl(var(--deep-teal)), hsl(var(--cambodia-teal)));
-    
-    /* Shadow System - Cambodia Theme */
-    --shadow-orange: 0 10px 40px -10px hsl(var(--cambodia-orange) / 0.3);
-    --shadow-teal: 0 8px 30px -8px hsl(var(--cambodia-teal) / 0.25);
-    --shadow-elegant: 0 20px 60px -15px hsl(14 50% 30% / 0.15);
-    --shadow-glow: 0 0 40px hsl(var(--sunset-orange) / 0.4);
-    
-    /* Animation Timing */
+    --gradient-teal: linear-gradient(135deg, hsl(var(--royal-blue)), hsl(220 45% 50%));
+    --gradient-temple: linear-gradient(180deg, hsl(var(--espresso)), hsl(20 35% 18%));
+
+    /* ─── Shadow System ────────────────────────────── */
+    --shadow-royal: 0 8px 30px -8px hsl(var(--royal-blue) / 0.2);
+    --shadow-red: 0 8px 30px -8px hsl(var(--cambodia-red) / 0.25);
+    --shadow-elegant: 0 20px 60px -15px hsl(20 40% 15% / 0.12);
+    --shadow-glow: 0 0 40px hsl(var(--cambodia-red) / 0.3);
+    --shadow-orange: 0 10px 40px -10px hsl(var(--cambodia-red) / 0.25);
+    --shadow-teal: 0 8px 30px -8px hsl(var(--royal-blue) / 0.2);
+
+    /* ─── Animation Timing ─────────────────────────── */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    /* Base Design System */
-    --background: var(--warm-cream);
-    --foreground: var(--deep-teal);
+    /* ─── Base Design System ───────────────────────── */
+    --background: var(--ivory);
+    --foreground: var(--espresso);
     --card: var(--pure-white);
-    --card-foreground: var(--deep-teal);
+    --card-foreground: var(--espresso);
     --popover: var(--pure-white);
-    --popover-foreground: var(--deep-teal);
-    --primary: var(--cambodia-orange);
+    --popover-foreground: var(--espresso);
+    --primary: var(--cambodia-red);
     --primary-foreground: var(--pure-white);
-    --secondary: var(--cambodia-teal);
-    --secondary-foreground: var(--pure-white);
-    --muted: var(--soft-beige);
-    --muted-foreground: 180 25% 45%;
-    --accent: var(--sunset-orange);
-    --accent-foreground: var(--deep-teal);
+    --secondary: var(--warm-sand);
+    --secondary-foreground: var(--espresso);
+    --muted: var(--warm-sand);
+    --muted-foreground: 20 20% 45%;
+    --accent: var(--cambodia-red);
+    --accent-foreground: var(--pure-white);
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: var(--pure-white);
-    --border: 28 20% 88%;
-    --input: 28 20% 88%;
-    --ring: var(--cambodia-orange);
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: var(--cambodia-red);
     --radius: 0.75rem;
+
+    /* ─── Sidebar ──────────────────────────────────── */
     --sidebar-background: var(--pure-white);
-    --sidebar-foreground: var(--deep-teal);
-    --sidebar-primary: var(--cambodia-orange);
+    --sidebar-foreground: var(--espresso);
+    --sidebar-primary: var(--cambodia-red);
     --sidebar-primary-foreground: var(--pure-white);
-    --sidebar-accent: var(--soft-beige);
-    --sidebar-accent-foreground: var(--deep-teal);
-    --sidebar-border: 28 20% 88%;
-    --sidebar-ring: var(--cambodia-orange);
+    --sidebar-accent: var(--warm-sand);
+    --sidebar-accent-foreground: var(--espresso);
+    --sidebar-border: 30 20% 85%;
+    --sidebar-ring: var(--cambodia-red);
+
+    /* ─── Dark mode aliases ─────────────────────────── */
+    --pure-white-val: 0 0% 100%;
+    --warm-white: var(--ivory);
+    --soft-gray: var(--warm-sand);
+    --dark-blue: var(--espresso);
   }
 
   .dark {
-    --background: var(--deep-teal);
+    --background: var(--espresso);
     --foreground: var(--pure-white);
-    --card: var(--cambodia-teal);
+    --card: 20 35% 15%;
     --card-foreground: var(--pure-white);
-    --popover: var(--deep-teal);
+    --popover: var(--espresso);
     --popover-foreground: var(--pure-white);
-    --primary: var(--cambodia-orange);
+    --primary: var(--cambodia-red);
     --primary-foreground: var(--pure-white);
-    --secondary: hsl(180 100% 20%);
+    --secondary: 20 30% 20%;
     --secondary-foreground: var(--pure-white);
-    --muted: hsl(180 100% 20%);
-    --muted-foreground: 180 25% 75%;
-    --accent: var(--sunset-orange);
-    --accent-foreground: var(--deep-teal);
+    --muted: 20 30% 20%;
+    --muted-foreground: 20 15% 70%;
+    --accent: var(--cambodia-red);
+    --accent-foreground: var(--pure-white);
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: var(--pure-white);
-    --border: hsl(180 100% 20%);
-    --input: hsl(180 100% 20%);
-    --ring: var(--cambodia-orange);
-    --sidebar-background: var(--deep-teal);
+    --border: 20 25% 22%;
+    --input: 20 25% 22%;
+    --ring: var(--cambodia-red);
+    --sidebar-background: var(--espresso);
     --sidebar-foreground: var(--pure-white);
-    --sidebar-primary: var(--cambodia-orange);
+    --sidebar-primary: var(--cambodia-red);
     --sidebar-primary-foreground: var(--pure-white);
-    --sidebar-accent: hsl(180 100% 20%);
+    --sidebar-accent: 20 30% 20%;
     --sidebar-accent-foreground: var(--pure-white);
-    --sidebar-border: hsl(180 100% 20%);
-    --sidebar-ring: var(--cambodia-orange);
+    --sidebar-border: 20 25% 22%;
+    --sidebar-ring: var(--cambodia-red);
   }
 }
 
@@ -104,22 +122,29 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  /* ─── Button / Component Utilities ──────────────── */
   .cambodia-hero {
     background: var(--gradient-hero);
-    box-shadow: var(--shadow-orange);
+    box-shadow: var(--shadow-red);
     transition: var(--transition-smooth);
   }
-  
+
   .cambodia-accent {
     background: var(--gradient-hero);
     color: hsl(var(--pure-white));
-    box-shadow: var(--shadow-orange);
+    box-shadow: var(--shadow-red);
     transition: var(--transition-smooth);
   }
-  
+
   .cambodia-accent:hover {
     background: var(--gradient-sunset);
     transform: translateY(-2px);
@@ -129,7 +154,7 @@ All colors MUST be HSL.
   .cambodia-teal {
     background: var(--gradient-teal);
     color: hsl(var(--pure-white));
-    box-shadow: var(--shadow-teal);
+    box-shadow: var(--shadow-royal);
     transition: var(--transition-smooth);
   }
 
@@ -138,27 +163,68 @@ All colors MUST be HSL.
     transform: translateY(-2px);
     box-shadow: var(--shadow-elegant);
   }
-  
+
   .whatsapp-button {
     background: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 25%));
     color: white;
     box-shadow: 0 8px 25px -8px hsl(0 0% 20%);
     transition: var(--transition-bounce);
   }
-  
+
   .whatsapp-button:hover {
     background: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 20%));
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 35px -10px hsl(0 0% 15%);
   }
-  
+
   .temple-glow {
     background: var(--gradient-temple);
     color: hsl(var(--pure-white));
-    box-shadow: var(--shadow-teal);
+    box-shadow: var(--shadow-royal);
   }
 
   .logo-filter {
-    filter: drop-shadow(0 4px 12px hsl(var(--cambodia-orange) / 0.3));
+    filter: drop-shadow(0 4px 12px hsl(var(--cambodia-red) / 0.25));
   }
+}
+
+/* ─── Scroll Reveal Animations ────────────────────── */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 100ms; }
+  .reveal-delay-2 { transition-delay: 200ms; }
+  .reveal-delay-3 { transition-delay: 300ms; }
+}
+
+/* ─── Khmer Divider ───────────────────────────────── */
+/* Motif géométrique inspiré des frises d'Angkor */
+.khmer-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.khmer-divider::before,
+.khmer-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--cambodia-red) / 0.3), transparent);
+}
+
+.khmer-divider-icon {
+  color: hsl(var(--cambodia-red) / 0.4);
+  font-size: 0.5rem;
+  letter-spacing: 0.5rem;
 }

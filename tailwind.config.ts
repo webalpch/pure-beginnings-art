@@ -18,7 +18,13 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['Cormorant Garamond', 'serif'],
+				sans: ['DM Sans', 'sans-serif'],
+			},
 			colors: {
+				espresso: 'hsl(var(--espresso))',
+				ivory: 'hsl(var(--ivory))',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
