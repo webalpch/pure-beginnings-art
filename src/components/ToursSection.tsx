@@ -410,7 +410,6 @@ Fin de nos services.`,
       "Tour en cyclo-pousse et musée S21"
     ],
     includes: [
-      "Hébergements avec petit-déjeuner",
       "Guide francophone pendant tout le circuit",
       "Transports et entrées aux sites mentionnés",
       "Non inclus : Assurances et pourboires, boissons et dépenses personnelles"
@@ -463,7 +462,6 @@ Fin de nos services.`,
       "Maisons sur pilotis"
     ],
     includes: [
-      "Hébergements avec petit-déjeuner",
       "Guide francophone privé",
       "Transports et droits d'entrée aux sites",
       "Non inclus : Assurances, pourboires, et dépenses personnelles"
@@ -521,7 +519,6 @@ Fin de nos services.`,
       "Villages flottants du lac Tonlé Sap"
     ],
     includes: [
-      "Hébergements avec petit-déjeuner",
       "Guide francophone privé",
       "Transports et entrées aux sites mentionnés",
       "Non inclus : Assurances, pourboires et dépenses personnelles"
@@ -583,7 +580,6 @@ Fin de nos services.`,
       "Chutes de Khone Phapheng"
     ],
     includes: [
-      "Hébergements avec petit-déjeuner",
       "Guide francophone privé",
       "Transports et entrées aux sites",
       "Non inclus : Assurances, pourboires et dépenses personnelles"
@@ -664,7 +660,6 @@ Fin de nos services.`,
       "Découverte de Kampong Cham"
     ],
     includes: [
-      "Hébergements avec petits-déjeuners",
       "Transferts et transports mentionnés",
       "Droits d'entrée sur les sites et excursions",
       "Déjeuners mentionnés au programme",
@@ -774,7 +769,6 @@ Fin de nos services.`,
       "Détente sur l'île de Koh Rong Sanloem"
     ],
     includes: [
-      "Hébergements avec petits-déjeuners",
       "Transferts et transports mentionnés",
       "Droits d'entrée sur les sites",
       "Déjeuners et dîners mentionnés",
